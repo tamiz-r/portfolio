@@ -52,7 +52,6 @@ function initFilmIntro() {
   if (alreadyViewed) {
     intro.classList.add('dismissed');
     if (particleCleanup) particleCleanup();
-    checkGatekeeperModal();
     return;
   }
 
@@ -100,30 +99,23 @@ function initFilmIntro() {
       intro.classList.add('dismissed');
       intro.classList.remove('dismissing');
       if (particleCleanup) particleCleanup();
-      checkGatekeeperModal();
-    }, 900);
+    }, 600);
   }
 
   if (btn) btn.addEventListener('click', dismissIntro);
   if (skip) skip.addEventListener('click', dismissIntro);
+  intro.addEventListener('click', (e) => {
+    // Dismiss intro if user clicks anywhere outside of explicit buttons
+    dismissIntro();
+  });
+  window.addEventListener('wheel', dismissIntro, { passive: true, once: true });
 
-  // Allow pressing Enter or Space to enter
+  // Allow pressing any key to enter immediately
   window.addEventListener('keydown', (e) => {
     if (!intro.classList.contains('dismissed')) {
-      if (e.key === 'Enter' || e.key === ' ' || e.key === 'Escape') {
-        dismissIntro();
-      }
+      dismissIntro();
     }
-  });
-}
-
-function checkGatekeeperModal() {
-  const gate = document.getElementById('access-gate');
-  const savedVisitor = localStorage.getItem('tamiz_visitor_auth');
-  if (!savedVisitor && gate) {
-    gate.classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
+  }, { once: true });
 }
 
 /* ==========================================================================
@@ -323,50 +315,17 @@ function initThemeSwitcher() {
 }
 
 /* ==========================================================================
-   5. SECURITY & ANTI-INSPECTION SHIELD
+   5. PROFESSIONAL CONSOLE & RECRUITER WELCOME
    ========================================================================== */
 function initSecurityShield() {
-  const toast = document.getElementById('sec-toast');
-  const toastMsg = document.getElementById('toast-msg');
-
-  function notify(msg) {
-    if (toastMsg) toastMsg.textContent = msg;
-    if (toast) {
-      toast.classList.add('show');
-      setTimeout(() => toast.classList.remove('show'), 3500);
-    }
-  }
-
-  // Prevent right-click context menu except inside form inputs
-  document.addEventListener('contextmenu', (e) => {
-    if (['INPUT', 'TEXTAREA'].includes(e.target.tagName)) return;
-    e.preventDefault();
-    notify('Security Notice: Source inspection and context menu are restricted.');
-  });
-
-  // Block Developer Tools shortcuts
-  document.addEventListener('keydown', (e) => {
-    const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
-    const mod = isMac ? e.metaKey : e.ctrlKey;
-
-    if (e.key === 'F12') {
-      e.preventDefault();
-      notify('Security Notice: Developer tools access is restricted.');
-      return false;
-    }
-
-    if (mod && e.shiftKey && ['I', 'J', 'C'].includes(e.key.toUpperCase())) {
-      e.preventDefault();
-      notify('Security Notice: Developer tools shortcut is restricted.');
-      return false;
-    }
-
-    if (mod && ['U', 'S'].includes(e.key.toUpperCase())) {
-      e.preventDefault();
-      notify('Security Notice: Source viewing and saving are restricted.');
-      return false;
-    }
-  });
+  console.log(
+    '%cTAMIZ R | CS Student & Systems Developer',
+    'color: #d4af37; font-size: 14px; font-weight: 700; font-family: monospace;'
+  );
+  console.log(
+    '%cAvailable for Software Engineering Internships and Full-Stack / Systems roles.\nPortfolio source code: https://github.com/tamiz-r/portfolio\nDirect Email: rtamizh7@gmail.com',
+    'color: #a0a0a0; font-size: 11px; font-family: monospace;'
+  );
 }
 
 /* ==========================================================================
@@ -378,8 +337,9 @@ function initVisitorGate() {
   const form = document.getElementById('gate-form');
   const pill = document.getElementById('visitor-pill');
   const nameDisplay = document.getElementById('visitor-name');
+  const closeBtn = document.getElementById('gate-close-btn');
 
-  if (!gate || !form) return;
+  if (!gate) return;
 
   const saved = localStorage.getItem('tamiz_visitor_auth');
   if (saved) {
@@ -404,6 +364,24 @@ function initVisitorGate() {
   if (pill) {
     pill.addEventListener('click', openGate);
   }
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeGate);
+  }
+
+  // Click outside to close
+  gate.addEventListener('click', (e) => {
+    if (e.target === gate) closeGate();
+  });
+
+  // Escape key to close
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && gate.classList.contains('active')) {
+      closeGate();
+    }
+  });
+
+  if (!form) return;
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -548,10 +526,12 @@ function initRoleRotator() {
   if (!el) return;
 
   const roles = [
-    'Software Developer & UI Craftsman',
-    'AI Technologist & Agent Architect',
-    'Competitive Programmer (1,594 Solved)',
-    'Full-Stack Engineer & Cloud Builder'
+    'CS Engineering Student @ KCE',
+    'Full-Stack & Systems Developer',
+    'C++ & Low-Level Systems Practitioner',
+    'Autonomous AI Agents & Vector DB Builder',
+    'GPU & Distributed Computing Enthusiast',
+    'Competitive Programmer (1,594+ Solved)'
   ];
 
   let rIndex = 0;

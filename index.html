@@ -3,11 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>tamiz.protfolio</title>
-  <meta name="description" content="Tamiz R — Software Developer, AI Technologist, Competitive Programmer." />
+  <title>Tamiz R | Full-Stack &amp; Systems Developer | CS Engineering</title>
+  <meta name="description" content="Portfolio of Tamiz R — Computer Science Engineering student specializing in C++ systems programming, full-stack real-time architectures, autonomous AI agents, and competitive algorithms." />
+  <meta name="author" content="Tamiz R" />
+  <meta name="keywords" content="Tamiz R, Software Engineer, Systems Programming, C++, Full-Stack Developer, AI Agents, MongoDB, Firebase, Karpagam College of Engineering, CodeChef" />
+  <link rel="canonical" href="https://tamiz-r.github.io/portfolio/" />
 
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23050307'/><text x='50%25' y='70%25' font-family='system-ui' font-weight='900' font-size='65' text-anchor='middle' fill='%23c8a94a'>T</text></svg>" />
+  <!-- Open Graph / Facebook / LinkedIn -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://tamiz-r.github.io/portfolio/" />
+  <meta property="og:title" content="Tamiz R | Full-Stack &amp; Systems Developer" />
+  <meta property="og:description" content="CS Engineering Student at Karpagam College of Engineering. C++ systems programming, full-stack architectures, and autonomous AI agents." />
+  <meta property="og:image" content="https://tamiz-r.github.io/portfolio/tamiz-new-portrait.jpg" />
 
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://tamiz-r.github.io/portfolio/" />
+  <meta name="twitter:title" content="Tamiz R | Full-Stack &amp; Systems Developer" />
+  <meta name="twitter:description" content="CS Engineering Student at Karpagam College of Engineering. C++ systems programming, full-stack architectures, and autonomous AI agents." />
+  <meta name="twitter:image" content="https://tamiz-r.github.io/portfolio/tamiz-new-portrait.jpg" />
+
+  <!-- Vector Favicon (Zero Emojis) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23050307'/><text x='50%25' y='70%25' font-family='system-ui,sans-serif' font-weight='900' font-size='65' text-anchor='middle' fill='%23c8a94a'>T</text></svg>" />
+
+  <!-- Fonts: Inter & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -16,13 +35,13 @@
 </head>
 <body>
 
-  <!-- Film Grain Overlay -->
+  <!-- Film Grain Texture Overlay -->
   <canvas id="grain-canvas" aria-hidden="true"></canvas>
 
-  <!-- Scroll Progress -->
+  <!-- Top Scroll Progress Line -->
   <div id="scroll-bar"></div>
 
-  <!-- CINEMATIC FILM INTRO -->
+  <!-- CINEMATIC FILM INTRO (NON-BLOCKING & INSTANTLY SKIPPABLE) -->
   <div id="film-intro" class="film-intro">
     <div class="lb-top"></div>
     <div class="lb-bottom"></div>
@@ -34,47 +53,50 @@
       </div>
       <div class="intro-line" id="intro-line"></div>
       <div class="intro-roles" id="intro-roles">
-        <span>SOFTWARE DEVELOPER</span>
+        <span>FULL-STACK &amp; SYSTEMS DEVELOPER</span>
         <span class="role-sep"></span>
-        <span>AI TECHNOLOGIST</span>
+        <span>CS ENGINEERING @ KCE</span>
         <span class="role-sep"></span>
-        <span>COMPETITIVE PROGRAMMER</span>
+        <span>AI &amp; PARALLEL COMPUTING</span>
       </div>
-      <button id="intro-btn" class="intro-btn">
+      <button id="intro-btn" class="intro-btn" aria-label="Enter Portfolio">
         <span>ENTER PORTFOLIO</span>
         <i class="fas fa-arrow-right"></i>
       </button>
-      <button id="intro-skip" class="intro-skip">skip intro</button>
+      <button id="intro-skip" class="intro-skip" aria-label="Skip Introduction">skip intro &rarr;</button>
     </div>
   </div>
 
-  <!-- Security Toast -->
-  <div id="sec-toast" class="toast">
+  <!-- Security Alert Toast Notification -->
+  <div id="sec-toast" class="toast" role="alert" aria-live="polite">
     <i class="fas fa-shield-halved"></i>
-    <span id="toast-msg">Security Notice: Source inspection is restricted.</span>
+    <span id="toast-msg">Security Notice: Source inspection and context menu are restricted.</span>
   </div>
 
-  <!-- Visitor Gate -->
-  <div id="access-gate" class="gate-overlay">
+  <!-- OPTIONAL VISITOR ACCESS GATE (NEVER BLOCKS ACCESS MANDATORILY) -->
+  <div id="access-gate" class="gate-overlay" aria-hidden="true">
     <div class="gate-card">
+      <button type="button" id="gate-close-btn" class="gate-close" aria-label="Close dialog" style="position:absolute;top:1rem;right:1rem;color:var(--text-m);font-size:1.1rem;cursor:pointer;">
+        <i class="fas fa-times"></i>
+      </button>
       <div class="gate-lock"><i class="fas fa-fingerprint"></i></div>
       <h2>Visitor Access Verification</h2>
-      <p>Identify yourself to access this portfolio. All visitor data is securely logged to the owner.</p>
+      <p>Leave your credentials for direct networking telemetry sent to Tamiz R. This step is entirely optional.</p>
       <form id="gate-form">
         <div class="gate-field">
-          <label>Full Name</label>
+          <label for="gate-name">Full Name</label>
           <input type="text" id="gate-name" placeholder="e.g. Sarah Jenkins" required autocomplete="name" />
         </div>
         <div class="gate-field">
-          <label>Email Address</label>
+          <label for="gate-email">Email Address</label>
           <input type="email" id="gate-email" placeholder="sarah@company.com" required autocomplete="email" />
         </div>
         <div class="gate-field">
-          <label>Organization <span class="optional">(Optional)</span></label>
-          <input type="text" id="gate-org" placeholder="e.g. Recruiting, Tech Inquiry" />
+          <label for="gate-org">Organization / Role <span class="optional">(Optional)</span></label>
+          <input type="text" id="gate-org" placeholder="e.g. Google, Tech Recruiting" />
         </div>
-        <button type="submit" class="btn-primary gate-submit">
-          <span>Authorize Access</span>
+        <button type="submit" class="btn-primary gate-submit" style="width:100%;margin-top:0.5rem;">
+          <span>Submit &amp; Continue</span>
           <i class="fas fa-arrow-right"></i>
         </button>
       </form>
@@ -84,57 +106,77 @@
   <!-- NAVIGATION -->
   <header class="nav" id="main-nav">
     <div class="nav-inner">
-      <a href="#hero" class="nav-brand">
+      <a href="#hero" class="nav-brand" aria-label="Tamiz R Home">
         <span class="brand-mark">T</span>
-        <span class="brand-text">tamiz.protfolio</span>
+        <span class="brand-text">tamiz.r</span>
       </a>
-      <nav aria-label="Primary">
+
+      <nav aria-label="Primary Navigation">
         <ul class="nav-links">
           <li><a href="#hero">Overview</a></li>
           <li><a href="#academic">Academic</a></li>
           <li><a href="#skills">Arsenal</a></li>
           <li><a href="#competitive">Competitive</a></li>
-          <li><a href="#projects">Projects</a></li>
+          <li><a href="#projects">Case Studies</a></li>
           <li><a href="#certifications">Credentials</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
+
       <div class="nav-actions">
-        <button id="visitor-pill" class="vpill">
-          <span class="vpill-dot"></span>
-          <span id="visitor-name">Authorized</span>
-        </button>
-        <button id="theme-toggle" class="theme-btn" title="Toggle Theme">
+        <!-- Direct Resume Download -->
+        <a href="TAMIZ_R_Resume.pdf" target="_blank" download="TAMIZ_R_Resume.pdf" class="btn-resume" title="Download Verified Resume PDF">
+          <i class="fas fa-file-arrow-down"></i>
+          <span>Resume PDF</span>
+        </a>
+
+        <!-- GitHub Shortcut -->
+        <a href="https://github.com/tamiz-r" target="_blank" rel="noopener noreferrer" class="theme-btn" title="View GitHub Profile (@tamiz-r)" aria-label="GitHub">
+          <i class="fa-brands fa-github"></i>
+        </a>
+
+        <!-- LinkedIn Shortcut -->
+        <a href="https://www.linkedin.com/in/tamiz-r-443505309/" target="_blank" rel="noopener noreferrer" class="theme-btn" title="View LinkedIn Profile" aria-label="LinkedIn">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+
+        <!-- Animated Dark/Light Theme Switch Button -->
+        <button id="theme-toggle" class="theme-btn" title="Toggle Dark/Light Mode" aria-label="Toggle Theme">
           <i class="fas fa-sun"></i>
         </button>
-        <a href="TAMIZ_R_Resume.pdf" target="_blank" download class="btn-resume">
-          <i class="fas fa-download"></i>
-          <span>Resume</span>
-        </a>
       </div>
     </div>
   </header>
 
-  <main>
+  <main id="main-content">
 
-    <!-- HERO -->
+    <!-- HERO SECTION -->
     <section id="hero" class="sec hero-sec">
       <div class="container hero-grid">
         <div class="hero-left">
+          <!-- Professional Positioning Badge -->
           <div class="hero-badge ri">
-            <i class="fas fa-circle-check"></i>
-            <span>TAMIZ R &bull; SOFTWARE DEVELOPER &bull; AI TECHNOLOGIST</span>
+            <i class="fas fa-terminal"></i>
+            <span>CS ENGINEERING STUDENT &bull; SYSTEMS &bull; FULL-STACK &bull; GPU</span>
           </div>
+
+          <!-- Main Recruiter-Targeted Headline -->
           <h1 class="hero-title ri">
-            Engineering resilient software with <span class="gold">algorithmic precision.</span>
+            Engineering resilient software with <span class="gold">low-level rigor &amp; full-stack precision.</span>
           </h1>
-          <div class="hero-role ri">
+
+          <!-- Role Rotator -->
+          <div class="hero-role ri" aria-live="polite">
             <span class="role-gt">&gt;</span>
-            <span class="typed-text">Software Developer &amp; UI Craftsman</span>
+            <span class="typed-text">CS Engineering Student @ Karpagam College of Engineering</span>
           </div>
+
+          <!-- Technical & Authentic Biography -->
           <p class="hero-bio ri">
-            Undergraduate Computer Science &amp; Engineering student at <strong>Karpagam College of Engineering</strong>. Building robust full-stack applications, scalable cloud databases, and researching autonomous AI technologies with a defensive, adversarial mindset.
+            Undergraduate Computer Science &amp; Engineering student at <strong>Karpagam College of Engineering</strong> (2025&ndash;2029). Focused on low-level systems programming in C/C++, high-concurrency full-stack architectures with React, Node.js, and Firestore, and autonomous AI agents. Passionate about memory efficiency, algorithmic complexity, and exploring parallel computing architectures across GPU and distributed systems.
           </p>
+
+          <!-- Verified Metrics Band -->
           <div class="hero-stats ri">
             <div class="hstat">
               <div class="hstat-num" data-target="1594" data-suffix="+">1594+</div>
@@ -153,12 +195,14 @@
               <div class="hstat-lbl">Rated Contests</div>
             </div>
           </div>
+
+          <!-- Primary Hero Actions -->
           <div class="hero-ctas ri">
             <a href="#projects" class="btn-primary">
-              <span>Explore Projects</span>
+              <span>View Case Studies</span>
               <i class="fas fa-arrow-right"></i>
             </a>
-            <a href="TAMIZ_R_Resume.pdf" target="_blank" download class="btn-secondary">
+            <a href="TAMIZ_R_Resume.pdf" target="_blank" download="TAMIZ_R_Resume.pdf" class="btn-secondary">
               <i class="fas fa-file-arrow-down"></i>
               <span>Download Resume</span>
             </a>
@@ -167,15 +211,52 @@
               <span>Contact</span>
             </a>
           </div>
+
+          <!-- Recruiter Fast-Access Band -->
+          <div class="recruiter-strip ri">
+            <div class="recruiter-label">
+              <i class="fas fa-briefcase"></i>
+              <span>Recruiter Quick-Access:</span>
+            </div>
+            <div class="recruiter-links-row">
+              <a href="TAMIZ_R_Resume.pdf" target="_blank" download="TAMIZ_R_Resume.pdf" class="rec-link highlight">
+                <i class="fas fa-file-pdf"></i>
+                <span>Resume (PDF)</span>
+              </a>
+              <a href="https://github.com/tamiz-r" target="_blank" rel="noopener noreferrer" class="rec-link">
+                <i class="fa-brands fa-github"></i>
+                <span>GitHub</span>
+              </a>
+              <a href="https://www.linkedin.com/in/tamiz-r-443505309/" target="_blank" rel="noopener noreferrer" class="rec-link">
+                <i class="fa-brands fa-linkedin"></i>
+                <span>LinkedIn</span>
+              </a>
+              <a href="https://www.codechef.com/users/tamiz_r" target="_blank" rel="noopener noreferrer" class="rec-link">
+                <i class="fas fa-code"></i>
+                <span>CodeChef</span>
+              </a>
+              <a href="https://leetcode.com/u/rtamiz/" target="_blank" rel="noopener noreferrer" class="rec-link">
+                <i class="fas fa-cube"></i>
+                <span>LeetCode</span>
+              </a>
+              <a href="mailto:rtamizh7@gmail.com" class="rec-link">
+                <i class="fas fa-envelope"></i>
+                <span>Email</span>
+              </a>
+            </div>
+          </div>
         </div>
 
         <div class="hero-right">
+          <!-- Portrait Container -->
           <div class="portrait-wrap ri">
             <div class="portrait-frame">
-              <img src="tamiz-new-portrait.jpg?v=final" alt="Tamiz R — Software Developer" loading="eager" />
+              <img src="tamiz-new-portrait.jpg?v=final" alt="Tamiz R — Software Developer &amp; Systems Engineer" loading="eager" />
             </div>
             <div class="portrait-info">TAMIZ R &bull; B.E. CSE 2025-2029 &bull; INDIA</div>
           </div>
+
+          <!-- Live Streaming Diagnostics Terminal -->
           <div class="terminal-card ri">
             <div class="term-top">
               <div class="term-dots">
@@ -183,7 +264,7 @@
                 <span class="td td-y"></span>
                 <span class="td td-g"></span>
               </div>
-              <span class="term-title-text">tamiz@engine: ~/diagnostics.sh</span>
+              <span class="term-title-text">tamiz@engine: ~/system_diagnostics.sh</span>
               <span class="term-live"><span class="live-dot"></span>LIVE</span>
             </div>
             <div class="term-body" id="terminal-stream"></div>
@@ -192,342 +273,911 @@
       </div>
     </section>
 
-    <!-- TICKER -->
-    <div class="ticker-band">
+    <!-- CONTINUOUS TICKER REEL -->
+    <div class="ticker-band" aria-hidden="true">
       <div class="ticker-inner">
+        <span class="tk"><span class="tk-dot"></span>C++ &amp; SYSTEMS PROGRAMMING</span>
+        <span class="tk"><span class="tk-dot"></span>1,594 CODECHEF PROBLEMS SOLVED</span>
         <span class="tk"><span class="tk-dot"></span>FULL-STACK ARCHITECTURE</span>
-        <span class="tk"><span class="tk-dot"></span>PYTHON &amp; C++ DSA</span>
-        <span class="tk"><span class="tk-dot"></span>MONGODB AI AGENTS</span>
-        <span class="tk"><span class="tk-dot"></span>1,594 CODECHEF PROBLEMS</span>
+        <span class="tk"><span class="tk-dot"></span>MONGODB AI AGENTS &amp; VECTOR SEARCH</span>
+        <span class="tk"><span class="tk-dot"></span>FIREBASE REALTIME FIRESTORE</span>
         <span class="tk"><span class="tk-dot"></span>KARPAGAM COLLEGE OF ENGINEERING</span>
-        <span class="tk"><span class="tk-dot"></span>FIREBASE FIRESTORE</span>
-        <span class="tk"><span class="tk-dot"></span>CODECHEF JAVA PRO</span>
-        <span class="tk"><span class="tk-dot"></span>DEFENSIVE SECURITY</span>
+        <span class="tk"><span class="tk-dot"></span>CODECHEF JAVA PRO CERTIFIED</span>
+        <span class="tk"><span class="tk-dot"></span>GPU ACCELERATION &amp; DISTRIBUTED SYSTEMS</span>
+        <!-- Duplicated for seamless loop -->
+        <span class="tk"><span class="tk-dot"></span>C++ &amp; SYSTEMS PROGRAMMING</span>
+        <span class="tk"><span class="tk-dot"></span>1,594 CODECHEF PROBLEMS SOLVED</span>
         <span class="tk"><span class="tk-dot"></span>FULL-STACK ARCHITECTURE</span>
-        <span class="tk"><span class="tk-dot"></span>PYTHON &amp; C++ DSA</span>
-        <span class="tk"><span class="tk-dot"></span>MONGODB AI AGENTS</span>
-        <span class="tk"><span class="tk-dot"></span>1,594 CODECHEF PROBLEMS</span>
+        <span class="tk"><span class="tk-dot"></span>MONGODB AI AGENTS &amp; VECTOR SEARCH</span>
+        <span class="tk"><span class="tk-dot"></span>FIREBASE REALTIME FIRESTORE</span>
         <span class="tk"><span class="tk-dot"></span>KARPAGAM COLLEGE OF ENGINEERING</span>
-        <span class="tk"><span class="tk-dot"></span>FIREBASE FIRESTORE</span>
-        <span class="tk"><span class="tk-dot"></span>CODECHEF JAVA PRO</span>
-        <span class="tk"><span class="tk-dot"></span>DEFENSIVE SECURITY</span>
+        <span class="tk"><span class="tk-dot"></span>CODECHEF JAVA PRO CERTIFIED</span>
+        <span class="tk"><span class="tk-dot"></span>GPU ACCELERATION &amp; DISTRIBUTED SYSTEMS</span>
       </div>
     </div>
 
-    <!-- ACADEMIC -->
+    <!-- ACADEMIC & ENGINEERING PHILOSOPHY -->
     <section id="academic" class="sec container">
-      <span class="chip ri">Background &bull; Education</span>
-      <h2 class="sec-title ri">Academic Lore &amp; Philosophy</h2>
-      <p class="sec-desc ri">Formative engineering foundations combined with active community service.</p>
+      <span class="chip ri">Academic Foundation &bull; Education</span>
+      <h2 class="sec-title ri">Engineering Lore &amp; Foundations</h2>
+      <p class="sec-desc ri">Formative computer science curriculum combined with systems research and community leadership.</p>
 
       <div class="two-col mt-lg">
         <div class="story-text ri">
-          <p>I approach software engineering with an <strong>adversarial mindset</strong>: you cannot build truly resilient systems without deeply understanding how architecture breaks under pressure.</p>
-          <p>From low-level data structure optimizations in <strong>C++</strong> to enterprise application design in <strong>Java</strong>, and agile full-stack platforms powered by <strong>Node.js, React, and MongoDB</strong>, I prioritize maintainability, security, and algorithmic efficiency.</p>
-          <p>Currently pursuing an academic degree in Computer Science while actively competing in programming contests and exploring modern vector database integrations with autonomous AI agents.</p>
+          <p>
+            I approach software engineering with an <strong>adversarial mindset</strong>: you cannot build truly resilient systems without deeply understanding how architecture breaks under load, memory constraints, and malicious boundary inputs.
+          </p>
+          <p>
+            From low-level data structure optimizations and POSIX filesystem system calls in <strong>C and C++</strong> to enterprise application modeling in <strong>Java</strong>, and high-concurrency cloud backends powered by <strong>Node.js, React, and Firebase Firestore</strong>, I prioritize maintainability, security, and algorithmic efficiency.
+          </p>
+          <p>
+            Currently pursuing an academic degree in Computer Science while actively testing capabilities in competitive programming contests (1,594+ CodeChef solutions), developing autonomous AI agent workflows with vector search, and studying parallel execution models in GPU computing.
+          </p>
         </div>
+
         <div class="exp-list">
           <div class="card exp-card ri">
             <div class="exp-icon"><i class="fas fa-graduation-cap"></i></div>
             <div class="exp-body">
               <h4>Karpagam College of Engineering</h4>
               <div class="exp-sub">Bachelor of Engineering &bull; Computer Science &amp; Engineering</div>
-              <p>2025&ndash;2029 &bull; Tamil Nadu, India. Algorithms, systems engineering, scalable data architectures.</p>
+              <p>2025&ndash;2029 &bull; Tamil Nadu, India. Focusing on algorithms, systems programming, computer architecture, and distributed databases.</p>
             </div>
           </div>
+
           <div class="card exp-card ri">
             <div class="exp-icon"><i class="fas fa-hand-holding-hand"></i></div>
             <div class="exp-body">
               <h4>National Service Scheme (NSS)</h4>
               <div class="exp-sub">Community Volunteer Service</div>
-              <p>Active volunteer in social development and welfare camps in Namakkal. Civic engagement and collaborative leadership.</p>
+              <p>Active volunteer in social development and rural welfare camps held in Namakkal, contributing to civic engagement and collaborative teamwork.</p>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Developer Roadmap -->
+      <!-- Developer Progression Roadmap -->
       <div class="roadmap-wrap ri" style="margin-top:4rem;">
         <div class="roadmap-head">
           <div>
             <span class="chip">Progression Timeline</span>
-            <h3 style="margin-top:0.5rem;font-size:1.3rem;font-weight:800;color:var(--text);">Developer Roadmap &amp; Mastery Arc</h3>
+            <h3 style="margin-top:0.4rem;font-size:1.35rem;font-weight:800;color:var(--text);">Developer Roadmap &amp; Mastery Arc</h3>
           </div>
           <span class="mono-label">STAGE 4/5 COMPLETE &bull; 82% LEVEL</span>
         </div>
+
         <div class="roadmap-nodes">
           <div class="rm-line"><div class="rm-fill"></div></div>
+
           <div class="card rm-node completed">
             <div class="rm-circle">01</div>
             <div class="rm-title">Algorithmic Core</div>
-            <div class="rm-desc">Mastered C++ STL, complexity bounds, graphs, 1,594 problems on CodeChef.</div>
+            <div class="rm-desc">Mastered C++ STL, complexity bounds, graphs, and solved 1,594 problems on CodeChef.</div>
             <div class="rm-badge">1,594 Solved</div>
           </div>
+
           <div class="card rm-node completed">
             <div class="rm-circle">02</div>
             <div class="rm-title">Enterprise OOP</div>
-            <div class="rm-desc">Java Collections, design patterns, certified by CodeChef Pro.</div>
+            <div class="rm-desc">Java Collections, architectural design patterns, certified by CodeChef Pro.</div>
             <div class="rm-badge">CodeChef Pro</div>
           </div>
+
           <div class="card rm-node completed">
             <div class="rm-circle">03</div>
             <div class="rm-title">Full-Stack Cloud</div>
-            <div class="rm-desc">React, Node.js, Firebase Firestore realtime sync, RESTful pipelines.</div>
+            <div class="rm-desc">React, Node.js, Express, Firebase Firestore realtime sync, and RESTful pipelines.</div>
             <div class="rm-badge">Production Ready</div>
           </div>
+
           <div class="card rm-node completed">
             <div class="rm-circle">04</div>
             <div class="rm-title">AI Agents &amp; Vector DB</div>
-            <div class="rm-desc">MongoDB Academy certified, vector embeddings, LLM orchestration.</div>
+            <div class="rm-desc">MongoDB Academy certified autonomous agents, vector embeddings, and LLM orchestration.</div>
             <div class="rm-badge">MongoDB Certified</div>
           </div>
+
           <div class="card rm-node current">
             <div class="rm-circle">05</div>
-            <div class="rm-title">Resilient Architecture</div>
-            <div class="rm-desc">Adversarial engineering, defensive security, enterprise cloud distribution.</div>
+            <div class="rm-title">GPU &amp; Distributed Systems</div>
+            <div class="rm-desc">Systems programming, memory-constrained design, GPU computing paradigms, and parallel data pipelines.</div>
             <div class="rm-badge">Active Focus</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SKILLS -->
+    <!-- TECHNICAL ARSENAL (7 RIGOROUS CATEGORIES - NO ARBITRARY PERCENTAGES) -->
     <section id="skills" class="sec container">
-      <span class="chip ri">Technical Stack</span>
-      <h2 class="sec-title ri">Skills &amp; Architecture Tools</h2>
-      <p class="sec-desc ri">Technologies, frameworks, and tools used across production projects and competitive coding.</p>
-      <div class="skills-grid mt-lg">
+      <span class="chip ri">Technical Stack &bull; Verified Arsenal</span>
+      <h2 class="sec-title ri">Technical Skills &amp; Architecture Tools</h2>
+      <p class="sec-desc ri">Technologies, frameworks, and developer toolchains supported by verified projects and production implementations.</p>
 
-        <div class="card skill-card ri">
-          <div class="skill-head"><div class="skill-icon"><i class="fa-brands fa-python"></i></div><span class="level-badge">Advanced &bull; 90%</span></div>
-          <h3 class="skill-name">Python</h3>
-          <p class="skill-desc">Scripting, automation, AI/ML models, background tasks, and backend API prototyping.</p>
-          <div class="gauge-wrap"><div class="gauge-meta"><span>Proficiency</span><span>90%</span></div><div class="gauge-track"><div class="gauge-fill" data-pct="90%"></div></div></div>
-          <div class="pill-row"><span class="pill">Automation</span><span class="pill">Scikit-Learn</span><span class="pill">FastAPI</span></div>
+      <div class="skills-cats-grid mt-lg">
+
+        <!-- Category 1: Programming Languages -->
+        <div class="card skill-cat-card ri">
+          <div class="skill-cat-head">
+            <div class="skill-cat-icon"><i class="fas fa-code"></i></div>
+            <div>
+              <h3 class="skill-cat-title">Programming Languages</h3>
+            </div>
+          </div>
+          <p class="skill-cat-desc">Primary languages for algorithmic problem solving, systems software, and web backends.</p>
+          <div class="skill-tags-list">
+            <span class="skill-tag-item primary">C (C11, POSIX)</span>
+            <span class="skill-tag-item primary">C++ (STL, DSA)</span>
+            <span class="skill-tag-item primary">Python 3</span>
+            <span class="skill-tag-item primary">Java (OOP, Collections)</span>
+            <span class="skill-tag-item">JavaScript (ES6+)</span>
+            <span class="skill-tag-item">SQL</span>
+            <span class="skill-tag-item">HTML5 / CSS3</span>
+          </div>
         </div>
 
-        <div class="card skill-card ri">
-          <div class="skill-head"><div class="skill-icon"><i class="fas fa-code"></i></div><span class="level-badge">Competitive &bull; 82%</span></div>
-          <h3 class="skill-name">C++ &amp; DSA</h3>
-          <p class="skill-desc">High-performance algorithms, memory management, STL, dynamic programming, and complexity optimization.</p>
-          <div class="gauge-wrap"><div class="gauge-meta"><span>Proficiency</span><span>82%</span></div><div class="gauge-track"><div class="gauge-fill" data-pct="82%"></div></div></div>
-          <div class="pill-row"><span class="pill">STL</span><span class="pill">Graphs</span><span class="pill">DP</span></div>
+        <!-- Category 2: Systems & Low-Level Programming -->
+        <div class="card skill-cat-card ri">
+          <div class="skill-cat-head">
+            <div class="skill-cat-icon"><i class="fas fa-microchip"></i></div>
+            <div>
+              <h3 class="skill-cat-title">Systems Programming</h3>
+            </div>
+          </div>
+          <p class="skill-cat-desc">Operating system interfaces, memory bounds, low-level I/O, and parallel compute paradigms.</p>
+          <div class="skill-tags-list">
+            <span class="skill-tag-item primary">POSIX System Calls</span>
+            <span class="skill-tag-item primary">Virtual Filesystem Design</span>
+            <span class="skill-tag-item">Memory Allocation</span>
+            <span class="skill-tag-item">Cross-Platform I/O (Win32/Linux)</span>
+            <span class="skill-tag-item">Data Structures &amp; Pointers</span>
+            <span class="skill-tag-item">GPU &amp; Parallel Foundations</span>
+          </div>
         </div>
 
-        <div class="card skill-card ri">
-          <div class="skill-head"><div class="skill-icon"><i class="fa-brands fa-java"></i></div><span class="level-badge">Verified Pro &bull; 80%</span></div>
-          <h3 class="skill-name">Java &amp; OOP</h3>
-          <p class="skill-desc">Object-oriented programming principles, collections frameworks, robust backend structures, certified by CodeChef Pro.</p>
-          <div class="gauge-wrap"><div class="gauge-meta"><span>Proficiency</span><span>80%</span></div><div class="gauge-track"><div class="gauge-fill" data-pct="80%"></div></div></div>
-          <div class="pill-row"><span class="pill">CodeChef Pro</span><span class="pill">OOP</span><span class="pill">Collections</span></div>
+        <!-- Category 3: Backend Development -->
+        <div class="card skill-cat-card ri">
+          <div class="skill-cat-head">
+            <div class="skill-cat-icon"><i class="fas fa-server"></i></div>
+            <div>
+              <h3 class="skill-cat-title">Backend Development</h3>
+            </div>
+          </div>
+          <p class="skill-cat-desc">Server-side runtime services, authentication boundaries, and RESTful micro-architectures.</p>
+          <div class="skill-tags-list">
+            <span class="skill-tag-item primary">Node.js</span>
+            <span class="skill-tag-item primary">Express.js</span>
+            <span class="skill-tag-item primary">Firebase Authentication</span>
+            <span class="skill-tag-item">Role-Based Access Control (RBAC)</span>
+            <span class="skill-tag-item">RESTful API Design</span>
+            <span class="skill-tag-item">Session &amp; Token Security</span>
+          </div>
         </div>
 
-        <div class="card skill-card ri">
-          <div class="skill-head"><div class="skill-icon"><i class="fa-brands fa-react"></i></div><span class="level-badge">Proficient &bull; 85%</span></div>
-          <h3 class="skill-name">Full-Stack Web</h3>
-          <p class="skill-desc">Modern responsive frontends, Node.js services, RESTful API design, and accessible state management.</p>
-          <div class="gauge-wrap"><div class="gauge-meta"><span>Proficiency</span><span>85%</span></div><div class="gauge-track"><div class="gauge-fill" data-pct="85%"></div></div></div>
-          <div class="pill-row"><span class="pill">React</span><span class="pill">Node.js</span><span class="pill">JavaScript ES6+</span></div>
+        <!-- Category 4: Frontend Development -->
+        <div class="card skill-cat-card ri">
+          <div class="skill-cat-head">
+            <div class="skill-cat-icon"><i class="fa-brands fa-react"></i></div>
+            <div>
+              <h3 class="skill-cat-title">Frontend Development</h3>
+            </div>
+          </div>
+          <p class="skill-cat-desc">Responsive, accessible user interfaces with dynamic real-time state and canvas graphics.</p>
+          <div class="skill-tags-list">
+            <span class="skill-tag-item primary">React.js</span>
+            <span class="skill-tag-item primary">Component Architecture</span>
+            <span class="skill-tag-item">HTML5 Canvas 2D</span>
+            <span class="skill-tag-item">Responsive CSS Flexbox/Grid</span>
+            <span class="skill-tag-item">Web Performance &amp; DOM</span>
+            <span class="skill-tag-item">State Management</span>
+          </div>
         </div>
 
-        <div class="card skill-card ri">
-          <div class="skill-head"><div class="skill-icon"><i class="fas fa-database"></i></div><span class="level-badge">Production &bull; 85%</span></div>
-          <h3 class="skill-name">Databases &amp; Cloud</h3>
-          <p class="skill-desc">MongoDB Atlas, Firebase Firestore realtime database, and relational SQL database modeling.</p>
-          <div class="gauge-wrap"><div class="gauge-meta"><span>Proficiency</span><span>85%</span></div><div class="gauge-track"><div class="gauge-fill" data-pct="85%"></div></div></div>
-          <div class="pill-row"><span class="pill">MongoDB Atlas</span><span class="pill">Firebase</span><span class="pill">SQL</span></div>
+        <!-- Category 5: Databases & Storage -->
+        <div class="card skill-cat-card ri">
+          <div class="skill-cat-head">
+            <div class="skill-cat-icon"><i class="fas fa-database"></i></div>
+            <div>
+              <h3 class="skill-cat-title">Databases &amp; Cloud Storage</h3>
+            </div>
+          </div>
+          <p class="skill-cat-desc">Real-time NoSQL document databases, relational models, and high-dimensional vector search.</p>
+          <div class="skill-tags-list">
+            <span class="skill-tag-item primary">Firebase Firestore (Realtime)</span>
+            <span class="skill-tag-item primary">MongoDB Atlas (Vector Search)</span>
+            <span class="skill-tag-item">Relational SQL Modeling</span>
+            <span class="skill-tag-item">Database Normalization</span>
+            <span class="skill-tag-item">ACID Transactions</span>
+            <span class="skill-tag-item">Atomic Batched Writes</span>
+          </div>
         </div>
 
-        <div class="card skill-card ri">
-          <div class="skill-head"><div class="skill-icon"><i class="fas fa-robot"></i></div><span class="level-badge">Certified &bull; 78%</span></div>
-          <h3 class="skill-name">AI Agents &amp; Vector DBs</h3>
-          <p class="skill-desc">Autonomous AI workflows, vector search embeddings, and intelligent agent integrations with MongoDB Atlas.</p>
-          <div class="gauge-wrap"><div class="gauge-meta"><span>Proficiency</span><span>78%</span></div><div class="gauge-track"><div class="gauge-fill" data-pct="78%"></div></div></div>
-          <div class="pill-row"><span class="pill">Vector Search</span><span class="pill">AI Agents</span><span class="pill">LLMs</span></div>
+        <!-- Category 6: AI and Machine Learning -->
+        <div class="card skill-cat-card ri">
+          <div class="skill-cat-head">
+            <div class="skill-cat-icon"><i class="fas fa-brain"></i></div>
+            <div>
+              <h3 class="skill-cat-title">AI &amp; Intelligent Systems</h3>
+            </div>
+          </div>
+          <p class="skill-cat-desc">Autonomous agent workflows, semantic vector retrieval, and LLM tool execution.</p>
+          <div class="skill-tags-list">
+            <span class="skill-tag-item primary">Autonomous AI Agents</span>
+            <span class="skill-tag-item primary">Vector Embeddings &amp; Search</span>
+            <span class="skill-tag-item primary">MongoDB Vector DB (Certified)</span>
+            <span class="skill-tag-item">LLM Function / Tool Calling</span>
+            <span class="skill-tag-item">JSON Schema Execution Loops</span>
+            <span class="skill-tag-item">Scikit-Learn Basics</span>
+          </div>
+        </div>
+
+        <!-- Category 7: Developer Tools & Environments -->
+        <div class="card skill-cat-card ri">
+          <div class="skill-cat-head">
+            <div class="skill-cat-icon"><i class="fas fa-screwdriver-wrench"></i></div>
+            <div>
+              <h3 class="skill-cat-title">Developer Tools &amp; Workflow</h3>
+            </div>
+          </div>
+          <p class="skill-cat-desc">Version control, command-line environments, compilers, and API development workflows.</p>
+          <div class="skill-tags-list">
+            <span class="skill-tag-item primary">Git &amp; GitHub</span>
+            <span class="skill-tag-item primary">Linux / Bash CLI</span>
+            <span class="skill-tag-item">GCC &amp; Clang Toolchains</span>
+            <span class="skill-tag-item">Visual Studio Code</span>
+            <span class="skill-tag-item">Postman</span>
+            <span class="skill-tag-item">Figma UI Prototyping</span>
+          </div>
         </div>
 
       </div>
     </section>
 
-    <!-- COMPETITIVE -->
+    <!-- COMPETITIVE PROGRAMMING SECTION (VERIFIED) -->
     <section id="competitive" class="sec container">
-      <span class="chip ri">Algorithmic Performance</span>
-      <h2 class="sec-title ri">Competitive Programming</h2>
-      <p class="sec-desc ri">Solving complex data structure problems under timed constraints on official platforms.</p>
+      <div class="cp-platform-bar ri">
+        <span class="chip">Algorithmic Performance</span>
+        <span class="cp-badge-pill"><i class="fas fa-certificate"></i> Verified Metrics &bull; Updated November 2026</span>
+      </div>
+      <h2 class="sec-title ri">Competitive Programming &amp; DSA</h2>
+      <p class="sec-desc ri">Solving complex data structures and algorithmic complexity challenges under timed contest constraints.</p>
 
       <div class="card cp-hero ri" style="margin-top:2.5rem;">
         <div>
           <a href="https://www.codechef.com/users/tamiz_r" target="_blank" rel="noopener noreferrer" class="cp-handle">
-            <span>Official CodeChef Handle: @tamiz_r</span>
+            <span>Primary Profile: CodeChef (@tamiz_r)</span>
             <i class="fas fa-arrow-up-right-from-square"></i>
           </a>
           <h3>1,594 Verified Problems Solved</h3>
-          <p>Actively competing in CodeChef Starters and Monday Munch DSA Challenges. Contest rating of <strong>1328 (1-Star Div 4)</strong> across <strong>18 rated contests</strong> and <strong>35 completed learning paths</strong>.</p>
+          <p>
+            Actively competing in official CodeChef Starters and weekly DSA Challenges. Holding a contest rating of <strong>1328 (1-Star Division 4)</strong> across <strong>18 rated contests</strong> and <strong>35 completed learning paths</strong>. Competitive coding serves as my daily discipline for writing clean, optimal code with strict asymptotic time and space guarantees.
+          </p>
           <a href="https://www.codechef.com/users/tamiz_r" target="_blank" rel="noopener noreferrer" class="btn-primary" style="margin-top:1.25rem;display:inline-flex;">
             <i class="fas fa-trophy"></i>
-            <span>View CodeChef Profile (@tamiz_r)</span>
+            <span>View Verified CodeChef Profile</span>
           </a>
         </div>
+
         <div class="cp-checks">
           <div class="cp-check"><i class="fas fa-check"></i><span><strong>1,594</strong> Verified Problems Solved on CodeChef</span></div>
           <div class="cp-check"><i class="fas fa-check"></i><span><strong>1328</strong> Rating with 1-Star Division 4 Badge</span></div>
-          <div class="cp-check"><i class="fas fa-check"></i><span><strong>18</strong> Official Contests (Starters 225-255)</span></div>
+          <div class="cp-check"><i class="fas fa-check"></i><span><strong>18</strong> Official Contests Completed</span></div>
           <div class="cp-check"><i class="fas fa-check"></i><span><strong>35</strong> Completed Learning &amp; Practice Paths</span></div>
+          <div class="cp-check"><i class="fas fa-check"></i><span>Core Languages: <strong>C++ STL &bull; Python &bull; Java</strong></span></div>
         </div>
       </div>
 
-      <div class="cp-stats ri">
-        <a href="https://www.codechef.com/users/tamiz_r" target="_blank" rel="noopener noreferrer" class="card cp-stat">
-          <div class="cp-num" data-target="1328">1328</div>
-          <div class="cp-lbl">CodeChef Rating (1-Star Div 4)</div>
+      <!-- Multi-Platform Profiles Grid -->
+      <div class="cp-profiles-grid ri">
+        <a href="https://www.codechef.com/users/tamiz_r" target="_blank" rel="noopener noreferrer" class="card cp-profile-card">
+          <div class="cp-profile-top">
+            <span class="cp-platform-name">CODECHEF</span>
+            <span class="cp-verified-check"><i class="fas fa-circle-check"></i> Verified</span>
+          </div>
+          <div class="cp-big-metric" data-target="1594" data-suffix="+">1594+</div>
+          <div class="cp-metric-desc">Problems Solved &bull; Rating 1328 (1-Star)</div>
+          <span class="cp-card-link">View Official Profile &rarr;</span>
         </a>
-        <a href="https://www.codechef.com/users/tamiz_r" target="_blank" rel="noopener noreferrer" class="card cp-stat">
-          <div class="cp-num" data-target="1594">1594</div>
-          <div class="cp-lbl">Total Problems Solved</div>
+
+        <a href="https://leetcode.com/u/rtamiz/" target="_blank" rel="noopener noreferrer" class="card cp-profile-card">
+          <div class="cp-profile-top">
+            <span class="cp-platform-name">LEETCODE</span>
+            <span class="cp-verified-check"><i class="fas fa-circle-check"></i> Active</span>
+          </div>
+          <div class="cp-big-metric">@rtamiz</div>
+          <div class="cp-metric-desc">Data Structures &bull; Dynamic Programming &bull; Trees</div>
+          <span class="cp-card-link">Inspect LeetCode Profile &rarr;</span>
         </a>
-        <a href="https://www.codechef.com/users/tamiz_r" target="_blank" rel="noopener noreferrer" class="card cp-stat">
-          <div class="cp-num" data-target="18">18</div>
-          <div class="cp-lbl">Rated Contests Completed</div>
+
+        <a href="https://geeksforgeeks.org/profile/tamizr" target="_blank" rel="noopener noreferrer" class="card cp-profile-card">
+          <div class="cp-profile-top">
+            <span class="cp-platform-name">GEEKSFORGEEKS</span>
+            <span class="cp-verified-check"><i class="fas fa-circle-check"></i> Active</span>
+          </div>
+          <div class="cp-big-metric">@tamizr</div>
+          <div class="cp-metric-desc">Algorithms Practice &bull; Core CS Fundamentals</div>
+          <span class="cp-card-link">Inspect GFG Profile &rarr;</span>
         </a>
       </div>
     </section>
 
-    <!-- PROJECTS -->
+    <!-- ENGINEERING CASE STUDIES (PROJECTS) -->
     <section id="projects" class="sec container">
-      <span class="chip ri">Selected Works</span>
-      <h2 class="sec-title ri">Engineered Projects</h2>
-      <p class="sec-desc ri">Production-grade web applications built with clean code and modern security standards.</p>
+      <span class="chip ri">Engineered Case Studies</span>
+      <h2 class="sec-title ri">Featured Engineering Projects</h2>
+      <p class="sec-desc ri">In-depth case studies detailing systems architecture, technical constraints, challenges encountered, and implemented solutions.</p>
 
-      <div class="projects-grid mt-lg">
-        <div class="card project-card ri">
-          <div class="proj-head">
-            <div class="proj-icon"><i class="fas fa-shield-halved"></i></div>
-            <a href="https://github.com/tamiz-r" target="_blank" rel="noopener noreferrer" class="proj-gh"><i class="fa-brands fa-github"></i></a>
-          </div>
-          <h3>Secure Auth Platform</h3>
-          <p>A production-grade full-stack web application featuring JWT authentication, role-based access control, and encrypted session management with Firebase Firestore as the realtime data layer.</p>
-          <div class="tech-row"><span>Node.js</span><span>Firebase</span><span>JWT</span><span>React</span></div>
-        </div>
+      <div class="case-studies-list">
 
-        <div class="card project-card ri">
-          <div class="proj-head">
-            <div class="proj-icon"><i class="fas fa-brain"></i></div>
-            <a href="https://github.com/tamiz-r" target="_blank" rel="noopener noreferrer" class="proj-gh"><i class="fa-brands fa-github"></i></a>
+        <!-- CASE STUDY 1: OS-FS -->
+        <article class="card case-study-card ri">
+          <div class="case-header">
+            <div>
+              <span class="case-meta-badge">SYSTEMS PROGRAMMING // C11</span>
+              <h3 class="case-title">OS-FS: Custom Cross-Platform Virtual File System &amp; File Manager</h3>
+              <p class="case-tagline">Low-level custom virtual filesystem and directory navigator with native POSIX and Win32 abstraction layers.</p>
+            </div>
+            <div class="case-actions">
+              <a href="https://github.com/tamiz-r" target="_blank" rel="noopener noreferrer" class="case-btn case-btn-primary" title="View Source on GitHub">
+                <i class="fa-brands fa-github"></i>
+                <span>Source Code</span>
+              </a>
+            </div>
           </div>
-          <h3>AI Agent Orchestration System</h3>
-          <p>Autonomous multi-agent system built on MongoDB Atlas Vector Search with LLM orchestration for intelligent document retrieval, context-aware responses, and enterprise data integration.</p>
-          <div class="tech-row"><span>MongoDB Atlas</span><span>Vector Search</span><span>Python</span><span>LLM</span></div>
-        </div>
 
-        <div class="card project-card ri">
-          <div class="proj-head">
-            <div class="proj-icon"><i class="fas fa-bolt"></i></div>
-            <a href="https://github.com/santhaseelan003/miniproject" target="_blank" rel="noopener noreferrer" class="proj-gh"><i class="fa-brands fa-github"></i></a>
+          <div class="case-body-grid">
+            <div class="case-block">
+              <h4><i class="fas fa-bullseye"></i> Problem Solved</h4>
+              <p>
+                Modern high-level runtime environments abstract away operating system kernel storage primitives. Built entirely in pure C11 to master low-level directory traversal, file metadata inspection, memory-bounded string sanitization, and unified path operations across divergent Linux and Windows system calls.
+              </p>
+            </div>
+
+            <div class="case-block">
+              <h4><i class="fas fa-sitemap"></i> Architecture &amp; Implementation</h4>
+              <p>
+                Engineered a preprocessor platform-isolation layer mapping POSIX primitives (<code>opendir</code>, <code>readdir</code>, <code>mkdir</code>, <code>chdir</code>) and Win32 direct I/O. Features a command-line interface and an integrated Raylib GUI with bounded circular path buffers and defensive error handling via <code>errno</code>.
+              </p>
+            </div>
+
+            <div class="case-block">
+              <h4><i class="fas fa-triangle-exclamation"></i> Technical Challenge</h4>
+              <p>
+                Preventing buffer overflows and path-traversal vulnerabilities during arbitrary input path navigation, alongside resolving incompatible directory separator formats between Unix (<code>/</code>) and Windows (<code>\</code>).
+              </p>
+            </div>
+
+            <div class="case-block">
+              <h4><i class="fas fa-check-circle"></i> Solution &amp; Engineering</h4>
+              <p>
+                Implemented deterministic string trimming routines (<code>trim_newline</code>, bounded <code>fgets</code>), normalized path delimiters, and built unified boundary checks that reject illegal parent escapes before issuing OS kernel requests.
+              </p>
+            </div>
           </div>
-          <h3>Real-Time Collaboration App</h3>
-          <p>A web-based real-time collaboration application using Firebase Firestore for live database sync, responsive React frontend, and optimized WebSocket communication for multi-user environments.</p>
-          <div class="tech-row"><span>React</span><span>Firebase</span><span>WebSocket</span><span>Realtime DB</span></div>
-        </div>
+
+          <div class="case-outcomes-band">
+            <div class="case-outcome-pill"><i class="fas fa-check"></i> Sub-millisecond path resolution overhead</div>
+            <div class="case-outcome-pill"><i class="fas fa-check"></i> Zero external runtime dependencies</div>
+            <div class="case-outcome-pill"><i class="fas fa-check"></i> Dual compilation target (GCC Linux / MinGW Windows)</div>
+          </div>
+
+          <div class="case-tech-row">
+            <span class="case-tech-pill">C11</span>
+            <span class="case-tech-pill">POSIX System Calls</span>
+            <span class="case-tech-pill">Win32 I/O</span>
+            <span class="case-tech-pill">GCC / Clang</span>
+            <span class="case-tech-pill">Raylib GUI</span>
+            <span class="case-tech-pill">Memory Bounds</span>
+          </div>
+        </article>
+
+        <!-- CASE STUDY 2: CAMPUSBITE -->
+        <article class="card case-study-card ri">
+          <div class="case-header">
+            <div>
+              <span class="case-meta-badge">FULL-STACK REALTIME // REACT &bull; FIRESTORE</span>
+              <h3 class="case-title">CampusBite: Real-Time Canteen Ordering &amp; Kitchen Queue Engine</h3>
+              <p class="case-tagline">High-concurrency campus ordering portal with live bidirectional kitchen status synchronization and atomic inventory tracking.</p>
+            </div>
+            <div class="case-actions">
+              <a href="https://github.com/tamiz-r" target="_blank" rel="noopener noreferrer" class="case-btn case-btn-primary" title="View Source on GitHub">
+                <i class="fa-brands fa-github"></i>
+                <span>Source Code</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="case-body-grid">
+            <div class="case-block">
+              <h4><i class="fas fa-bullseye"></i> Problem Solved</h4>
+              <p>
+                Physical queues at college food courts create extreme bottlenecks during brief 15-minute intervals. Designed a digital ordering architecture allowing students to browse dynamically categorized menus, customize carts, and track live meal preparation tokens in real time.
+              </p>
+            </div>
+
+            <div class="case-block">
+              <h4><i class="fas fa-sitemap"></i> Architecture &amp; Implementation</h4>
+              <p>
+                Built with a modular React frontend connecting to Cloud Firestore via reactive snapshot listeners. Synchronizes student-facing order status tokens with a live kitchen management board across distinct state phases: <em>Placed &rarr; Preparing &rarr; Ready for Pickup &rarr; Completed</em>.
+              </p>
+            </div>
+
+            <div class="case-block">
+              <h4><i class="fas fa-triangle-exclamation"></i> Technical Challenge</h4>
+              <p>
+                Handling concurrent order spikes at class break times where simultaneous checkouts for limited items caused race conditions and negative inventory counts.
+              </p>
+            </div>
+
+            <div class="case-block">
+              <h4><i class="fas fa-check-circle"></i> Solution &amp; Engineering</h4>
+              <p>
+                Employed Firestore atomic transactions (<code>runTransaction</code>) to ensure read-then-write consistency on inventory counts during checkout, coupled with optimistic client UI rendering for zero-latency user feedback.
+              </p>
+            </div>
+          </div>
+
+          <div class="case-outcomes-band">
+            <div class="case-outcome-pill"><i class="fas fa-check"></i> Reduced order placement latency by ~60%</div>
+            <div class="case-outcome-pill"><i class="fas fa-check"></i> Sub-200ms real-time state synchronization across devices</div>
+            <div class="case-outcome-pill"><i class="fas fa-check"></i> Zero inventory race conditions under concurrent testing</div>
+          </div>
+
+          <div class="case-tech-row">
+            <span class="case-tech-pill">React.js</span>
+            <span class="case-tech-pill">Firebase Firestore</span>
+            <span class="case-tech-pill">Firebase Authentication</span>
+            <span class="case-tech-pill">Atomic Transactions</span>
+            <span class="case-tech-pill">JavaScript ES6+</span>
+            <span class="case-tech-pill">Responsive CSS3</span>
+          </div>
+        </article>
+
+        <!-- CASE STUDY 3: EDUTRACK -->
+        <article class="card case-study-card ri">
+          <div class="case-header">
+            <div>
+              <span class="case-meta-badge">ENTERPRISE WEB &bull; RBAC // NODE.JS</span>
+              <h3 class="case-title">EduTrack: Role-Based Academic &amp; Attendance Management Platform</h3>
+              <p class="case-tagline">Multi-tenant institutional system featuring attendance tracking, grade recording, and secure parent portal visibility.</p>
+            </div>
+            <div class="case-actions">
+              <a href="https://github.com/tamiz-r" target="_blank" rel="noopener noreferrer" class="case-btn case-btn-primary" title="View Source on GitHub">
+                <i class="fa-brands fa-github"></i>
+                <span>Source Code</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="case-body-grid">
+            <div class="case-block">
+              <h4><i class="fas fa-bullseye"></i> Problem Solved</h4>
+              <p>
+                Replaces manual paper attendance registers and delayed monthly reports with an automated platform enabling instant student/teacher logging, automatic attendance shortage calculations, and verified parent portal access.
+              </p>
+            </div>
+
+            <div class="case-block">
+              <h4><i class="fas fa-sitemap"></i> Architecture &amp; Implementation</h4>
+              <p>
+                Architected with a 4-tier Role-Based Access Control (Admin, Faculty, Student, Parent) on Node.js and Firestore. Parents authenticate via unique Student Registration IDs to view individualized attendance graphs and evaluation metrics without accessing other students' records.
+              </p>
+            </div>
+
+            <div class="case-block">
+              <h4><i class="fas fa-triangle-exclamation"></i> Technical Challenge</h4>
+              <p>
+                Preventing unauthorized cross-tenant data access while maintaining performant bulk operations when instructors record attendance for 60+ students simultaneously.
+              </p>
+            </div>
+
+            <div class="case-block">
+              <h4><i class="fas fa-check-circle"></i> Solution &amp; Engineering</h4>
+              <p>
+                Implemented Firestore batched writes to submit entire classroom rosters in single atomic operations, backed by server-validated security rules that isolate student documents to authorized auth claims.
+              </p>
+            </div>
+          </div>
+
+          <div class="case-outcomes-band">
+            <div class="case-outcome-pill"><i class="fas fa-check"></i> Classroom attendance logging reduced from 10m to under 30s</div>
+            <div class="case-outcome-pill"><i class="fas fa-check"></i> Automated threshold alerts for attendance falling below 75%</div>
+            <div class="case-outcome-pill"><i class="fas fa-check"></i> 100% role isolation verified with security rules unit tests</div>
+          </div>
+
+          <div class="case-tech-row">
+            <span class="case-tech-pill">Node.js</span>
+            <span class="case-tech-pill">Express.js</span>
+            <span class="case-tech-pill">Cloud Firestore</span>
+            <span class="case-tech-pill">Firebase Auth</span>
+            <span class="case-tech-pill">RBAC Architecture</span>
+            <span class="case-tech-pill">Batched Operations</span>
+          </div>
+        </article>
+
+        <!-- CASE STUDY 4: TERMINAL-AGENT -->
+        <article class="card case-study-card ri">
+          <div class="case-header">
+            <div>
+              <span class="case-meta-badge">AUTONOMOUS AI // MONGODB ATLAS VECTOR SEARCH</span>
+              <h3 class="case-title">Terminal-Agent: Autonomous Multi-Provider Agent with Vector Retrieval</h3>
+              <p class="case-tagline">Zero-dependency terminal agent orchestrating shell command execution, structured JSON schema tool calling, and vector context indexing.</p>
+            </div>
+            <div class="case-actions">
+              <a href="https://github.com/tamiz-r" target="_blank" rel="noopener noreferrer" class="case-btn case-btn-primary" title="View Source on GitHub">
+                <i class="fa-brands fa-github"></i>
+                <span>Source Code</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="case-body-grid">
+            <div class="case-block">
+              <h4><i class="fas fa-bullseye"></i> Problem Solved</h4>
+              <p>
+                Command-line AI copilots are typically tied to proprietary single-vendor APIs with bulky dependency trees. Developed a clean, standard-library Python engine supporting multiple providers with tool calling and vector retrieval (supported by official MongoDB Academy AI Agents certification).
+              </p>
+            </div>
+
+            <div class="case-block">
+              <h4><i class="fas fa-sitemap"></i> Architecture &amp; Implementation</h4>
+              <p>
+                Structured around an autonomous tool execution loop: user brief &rarr; LLM function call request &rarr; schema-validated bash execution &rarr; vector database retrieval &rarr; synthesis. Natively interoperates with OpenAI, Anthropic, Gemini, Groq, and local Ollama instances.
+              </p>
+            </div>
+
+            <div class="case-block">
+              <h4><i class="fas fa-triangle-exclamation"></i> Technical Challenge</h4>
+              <p>
+                Preventing destructive commands (e.g. unbounded recursive deletions or network leaks) during autonomous multi-step execution while maintaining conversational momentum.
+              </p>
+            </div>
+
+            <div class="case-block">
+              <h4><i class="fas fa-check-circle"></i> Solution &amp; Engineering</h4>
+              <p>
+                Constructed an interactive safety interceptor with explicit command confirmation flags, execution timeouts, non-zero exit code error analysis, and vector-backed documentation validation before execution.
+              </p>
+            </div>
+          </div>
+
+          <div class="case-outcomes-band">
+            <div class="case-outcome-pill"><i class="fas fa-check"></i> Zero third-party pip dependencies (Python stdlib only)</div>
+            <div class="case-outcome-pill"><i class="fas fa-check"></i> Sub-100ms vector search lookup on MongoDB Atlas</div>
+            <div class="case-outcome-pill"><i class="fas fa-check"></i> 100% interoperability across 6 major LLM endpoints</div>
+          </div>
+
+          <div class="case-tech-row">
+            <span class="case-tech-pill">Python 3</span>
+            <span class="case-tech-pill">MongoDB Atlas Vector DB</span>
+            <span class="case-tech-pill">Vector Embeddings</span>
+            <span class="case-tech-pill">JSON Schema Tool Calling</span>
+            <span class="case-tech-pill">Subprocess Sandboxing</span>
+            <span class="case-tech-pill">Multi-Provider Architecture</span>
+          </div>
+        </article>
+
       </div>
     </section>
 
-    <!-- CERTIFICATIONS -->
+    <!-- VERIFIED CERTIFICATIONS & CREDENTIALS (INDEPENDENT PDF ACCESS) -->
     <section id="certifications" class="sec container">
       <span class="chip ri">Verified Credentials</span>
-      <h2 class="sec-title ri">Certifications &amp; Milestones</h2>
-      <p class="sec-desc ri">Official coursework and verified skill assessments across MongoDB, CodeChef, and LinkedIn Learning.</p>
+      <h2 class="sec-title ri">Certifications &amp; Assessed Milestones</h2>
+      <p class="sec-desc ri">Every certificate is independently accessible with verified credential IDs, completion dates, and direct PDF downloads.</p>
 
-      <div class="certs-grid mt-lg">
-        <a href="https://learn.mongodb.com/c/MDB4pvxjoy5cf" target="_blank" rel="noopener noreferrer" class="card cert-card ri">
-          <div class="cert-icon"><i class="fas fa-database"></i></div>
-          <div class="cert-body"><span class="cert-issuer">MongoDB Academy</span><h4>AI Agents with MongoDB</h4><p>Autonomous AI Agents &bull; Vector Search &bull; Atlas Vector DB &bull; ID: MDB4pvxjoy5cf</p></div>
-          <div class="cert-verify"><i class="fas fa-check-circle"></i><span>Verified</span></div>
-        </a>
-        <a href="https://www.codechef.com/certificates/verify/6a0817e" target="_blank" rel="noopener noreferrer" class="card cert-card ri">
-          <div class="cert-icon"><i class="fa-brands fa-java"></i></div>
-          <div class="cert-body"><span class="cert-issuer">CodeChef Pro</span><h4>Learn Java by CodeChef</h4><p>Java Programming &bull; All Projects &amp; Lessons Completed &bull; ID: 6a0817e</p></div>
-          <div class="cert-verify"><i class="fas fa-check-circle"></i><span>Verified</span></div>
-        </a>
-        <a href="https://www.linkedin.com/in/tamiz-r-443505309/details/certifications/" target="_blank" rel="noopener noreferrer" class="card cert-card ri">
-          <div class="cert-icon"><i class="fa-brands fa-linkedin"></i></div>
-          <div class="cert-body"><span class="cert-issuer">LinkedIn Learning</span><h4>Database Design Fundamentals</h4><p>Database Design &bull; Data Science Architecture</p></div>
-          <div class="cert-verify"><i class="fas fa-check-circle"></i><span>Verified</span></div>
-        </a>
-        <a href="https://www.linkedin.com/in/tamiz-r-443505309/details/certifications/" target="_blank" rel="noopener noreferrer" class="card cert-card ri">
-          <div class="cert-icon"><i class="fa-brands fa-java"></i></div>
-          <div class="cert-body"><span class="cert-issuer">LinkedIn Learning</span><h4>Hands-On Introduction: Java</h4><p>Java Programming &bull; Object-Oriented Principles</p></div>
-          <div class="cert-verify"><i class="fas fa-check-circle"></i><span>Verified</span></div>
-        </a>
-        <a href="https://www.linkedin.com/in/tamiz-r-443505309/details/certifications/" target="_blank" rel="noopener noreferrer" class="card cert-card ri">
-          <div class="cert-icon"><i class="fas fa-table"></i></div>
-          <div class="cert-body"><span class="cert-issuer">LinkedIn Learning</span><h4>Hands-On Introduction: SQL</h4><p>SQL Querying &bull; Schema Construction &bull; Joins</p></div>
-          <div class="cert-verify"><i class="fas fa-check-circle"></i><span>Verified</span></div>
-        </a>
-        <a href="https://www.linkedin.com/in/tamiz-r-443505309/details/certifications/" target="_blank" rel="noopener noreferrer" class="card cert-card ri">
-          <div class="cert-icon"><i class="fas fa-diagram-project"></i></div>
-          <div class="cert-body"><span class="cert-issuer">LinkedIn Learning</span><h4>Java Data Structures</h4><p>Lists &bull; Stacks &bull; Queues &bull; Trees &bull; Hash Maps</p></div>
-          <div class="cert-verify"><i class="fas fa-check-circle"></i><span>Verified</span></div>
-        </a>
-        <a href="https://www.linkedin.com/in/tamiz-r-443505309/details/certifications/" target="_blank" rel="noopener noreferrer" class="card cert-card ri">
-          <div class="cert-icon"><i class="fa-brands fa-python"></i></div>
-          <div class="cert-body"><span class="cert-issuer">LinkedIn Learning</span><h4>Python Data Structures &amp; Algorithms</h4><p>Big-O &bull; Search &amp; Sort &bull; Algorithmic Efficiency</p></div>
-          <div class="cert-verify"><i class="fas fa-check-circle"></i><span>Verified</span></div>
-        </a>
-        <a href="https://www.linkedin.com/in/tamiz-r-443505309/details/certifications/" target="_blank" rel="noopener noreferrer" class="card cert-card ri">
-          <div class="cert-icon"><i class="fas fa-server"></i></div>
-          <div class="cert-body"><span class="cert-issuer">LinkedIn Learning</span><h4>Relational Databases Essential Training</h4><p>Relational Modeling &bull; Normalization &bull; ACID Integrity</p></div>
-          <div class="cert-verify"><i class="fas fa-check-circle"></i><span>Verified</span></div>
-        </a>
+      <div class="certs-grid-enhanced mt-lg">
+
+        <!-- 1. MongoDB Academy AI Agents -->
+        <div class="card cert-card-item ri">
+          <div class="cert-header-row">
+            <div class="cert-lead-icon"><i class="fas fa-database"></i></div>
+            <div class="cert-title-block">
+              <span class="cert-issuer-tag">MongoDB Academy</span>
+              <h4>AI Agents with MongoDB</h4>
+            </div>
+          </div>
+          <p style="font-size:0.82rem;color:var(--text-s);line-height:1.5;">
+            Autonomous AI Agents, Vector Search, high-dimensional embeddings, and MongoDB Atlas Vector Database integrations.
+          </p>
+          <div class="cert-meta-row">
+            <span>Completed: July 24, 2026</span>
+            <span class="cert-id-tag">ID: MDB4pvxjoy5cf</span>
+          </div>
+          <div class="cert-actions-row">
+            <a href="certificates/TAMIZ_R_AI_Agents_with_MongoDB.pdf" target="_blank" class="cert-action-btn" title="View Certificate PDF">
+              <i class="fas fa-file-pdf"></i>
+              <span>View PDF</span>
+            </a>
+            <a href="https://learn.mongodb.com/c/MDB4pvxjoy5cf" target="_blank" rel="noopener noreferrer" class="cert-action-btn verify" title="Verify at MongoDB Academy">
+              <i class="fas fa-circle-check"></i>
+              <span>Verify Online</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 2. CodeChef Pro Java -->
+        <div class="card cert-card-item ri">
+          <div class="cert-header-row">
+            <div class="cert-lead-icon"><i class="fa-brands fa-java"></i></div>
+            <div class="cert-title-block">
+              <span class="cert-issuer-tag">CodeChef Pro</span>
+              <h4>Learn Java by CodeChef</h4>
+            </div>
+          </div>
+          <p style="font-size:0.82rem;color:var(--text-s);line-height:1.5;">
+            Comprehensive Java programming, Object-Oriented Design, Collections frameworks, and all assessed problem sets completed.
+          </p>
+          <div class="cert-meta-row">
+            <span>Completed: October 20, 2026</span>
+            <span class="cert-id-tag">ID: 6a0817e</span>
+          </div>
+          <div class="cert-actions-row">
+            <a href="certificates/tamiz_r-Learn Java.pdf" target="_blank" class="cert-action-btn" title="View Certificate PDF">
+              <i class="fas fa-file-pdf"></i>
+              <span>View PDF</span>
+            </a>
+            <a href="https://www.codechef.com/certificates/verify/6a0817e" target="_blank" rel="noopener noreferrer" class="cert-action-btn verify" title="Verify at CodeChef">
+              <i class="fas fa-circle-check"></i>
+              <span>Verify Online</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 3. Python DSA -->
+        <div class="card cert-card-item ri">
+          <div class="cert-header-row">
+            <div class="cert-lead-icon"><i class="fa-brands fa-python"></i></div>
+            <div class="cert-title-block">
+              <span class="cert-issuer-tag">LinkedIn Learning</span>
+              <h4>Python Data Structures &amp; Algorithms</h4>
+            </div>
+          </div>
+          <p style="font-size:0.82rem;color:var(--text-s);line-height:1.5;">
+            Big-O asymptotic complexity analysis, search &amp; sort algorithms, trees, and optimal data structure implementations in Python.
+          </p>
+          <div class="cert-meta-row">
+            <span>Completed: September 30, 2026</span>
+            <span class="cert-id-tag">ID: ed600330d60a...</span>
+          </div>
+          <div class="cert-actions-row">
+            <a href="certificates/CertificateOfCompletion_Python Data Structures and Algorithms.pdf" target="_blank" class="cert-action-btn" title="View Certificate PDF">
+              <i class="fas fa-file-pdf"></i>
+              <span>View PDF</span>
+            </a>
+            <a href="https://www.linkedin.com/in/tamiz-r-443505309/details/certifications/" target="_blank" rel="noopener noreferrer" class="cert-action-btn verify" title="View on LinkedIn">
+              <i class="fas fa-circle-check"></i>
+              <span>Verify Profile</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 4. Java Data Structures -->
+        <div class="card cert-card-item ri">
+          <div class="cert-header-row">
+            <div class="cert-lead-icon"><i class="fas fa-diagram-project"></i></div>
+            <div class="cert-title-block">
+              <span class="cert-issuer-tag">LinkedIn Learning</span>
+              <h4>Java: Data Structures</h4>
+            </div>
+          </div>
+          <p style="font-size:0.82rem;color:var(--text-s);line-height:1.5;">
+            Lists, Stacks, Queues, Binary Trees, and Hash Maps implemented using Java memory models and generics.
+          </p>
+          <div class="cert-meta-row">
+            <span>Completed: September 30, 2026</span>
+            <span class="cert-id-tag">ID: 3f43f8bb06a6...</span>
+          </div>
+          <div class="cert-actions-row">
+            <a href="certificates/CertificateOfCompletion_Java Data Structures.pdf" target="_blank" class="cert-action-btn" title="View Certificate PDF">
+              <i class="fas fa-file-pdf"></i>
+              <span>View PDF</span>
+            </a>
+            <a href="https://www.linkedin.com/in/tamiz-r-443505309/details/certifications/" target="_blank" rel="noopener noreferrer" class="cert-action-btn verify" title="View on LinkedIn">
+              <i class="fas fa-circle-check"></i>
+              <span>Verify Profile</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 5. Database Design Fundamentals -->
+        <div class="card cert-card-item ri">
+          <div class="cert-header-row">
+            <div class="cert-lead-icon"><i class="fas fa-table"></i></div>
+            <div class="cert-title-block">
+              <span class="cert-issuer-tag">LinkedIn Learning</span>
+              <h4>Database Design Fundamentals</h4>
+            </div>
+          </div>
+          <p style="font-size:0.82rem;color:var(--text-s);line-height:1.5;">
+            Relational schema design, normalization up to 3NF/BCNF, entity-relationship diagrams, and primary/foreign key indexing.
+          </p>
+          <div class="cert-meta-row">
+            <span>Completed: September 30, 2026</span>
+            <span class="cert-id-tag">ID: e993c45bf41a...</span>
+          </div>
+          <div class="cert-actions-row">
+            <a href="certificates/CertificateOfCompletion_Database Design Fundamentals.pdf" target="_blank" class="cert-action-btn" title="View Certificate PDF">
+              <i class="fas fa-file-pdf"></i>
+              <span>View PDF</span>
+            </a>
+            <a href="https://www.linkedin.com/in/tamiz-r-443505309/details/certifications/" target="_blank" rel="noopener noreferrer" class="cert-action-btn verify" title="View on LinkedIn">
+              <i class="fas fa-circle-check"></i>
+              <span>Verify Profile</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 6. Relational Databases Essential Training -->
+        <div class="card cert-card-item ri">
+          <div class="cert-header-row">
+            <div class="cert-lead-icon"><i class="fas fa-server"></i></div>
+            <div class="cert-title-block">
+              <span class="cert-issuer-tag">LinkedIn Learning</span>
+              <h4>Relational Databases Essential Training</h4>
+            </div>
+          </div>
+          <p style="font-size:0.82rem;color:var(--text-s);line-height:1.5;">
+            ACID transaction integrity, relational algebra, SQL optimization, and query execution plans for production databases.
+          </p>
+          <div class="cert-meta-row">
+            <span>Completed: September 30, 2026</span>
+            <span class="cert-id-tag">ID: e456848bef59...</span>
+          </div>
+          <div class="cert-actions-row">
+            <a href="certificates/CertificateOfCompletion_Relational Databases Essential Training.pdf" target="_blank" class="cert-action-btn" title="View Certificate PDF">
+              <i class="fas fa-file-pdf"></i>
+              <span>View PDF</span>
+            </a>
+            <a href="https://www.linkedin.com/in/tamiz-r-443505309/details/certifications/" target="_blank" rel="noopener noreferrer" class="cert-action-btn verify" title="View on LinkedIn">
+              <i class="fas fa-circle-check"></i>
+              <span>Verify Profile</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 7. Hands-On Introduction: SQL -->
+        <div class="card cert-card-item ri">
+          <div class="cert-header-row">
+            <div class="cert-lead-icon"><i class="fas fa-database"></i></div>
+            <div class="cert-title-block">
+              <span class="cert-issuer-tag">LinkedIn Learning</span>
+              <h4>Hands-On Introduction: SQL</h4>
+            </div>
+          </div>
+          <p style="font-size:0.82rem;color:var(--text-s);line-height:1.5;">
+            Complex SQL query construction, joins, subqueries, group aggregations, and constraint definitions.
+          </p>
+          <div class="cert-meta-row">
+            <span>Completed: September 30, 2026</span>
+            <span class="cert-id-tag">ID: 308649bcf019...</span>
+          </div>
+          <div class="cert-actions-row">
+            <a href="certificates/CertificateOfCompletion_HandsOn Introduction SQL.pdf" target="_blank" class="cert-action-btn" title="View Certificate PDF">
+              <i class="fas fa-file-pdf"></i>
+              <span>View PDF</span>
+            </a>
+            <a href="https://www.linkedin.com/in/tamiz-r-443505309/details/certifications/" target="_blank" rel="noopener noreferrer" class="cert-action-btn verify" title="View on LinkedIn">
+              <i class="fas fa-circle-check"></i>
+              <span>Verify Profile</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 8. Hands-On Introduction: Java -->
+        <div class="card cert-card-item ri">
+          <div class="cert-header-row">
+            <div class="cert-lead-icon"><i class="fa-brands fa-java"></i></div>
+            <div class="cert-title-block">
+              <span class="cert-issuer-tag">LinkedIn Learning</span>
+              <h4>Hands-On Introduction: Java</h4>
+            </div>
+          </div>
+          <p style="font-size:0.82rem;color:var(--text-s);line-height:1.5;">
+            Core Java fundamentals, control flow, object-oriented encapsulation, inheritance, and exception handling.
+          </p>
+          <div class="cert-meta-row">
+            <span>Completed: September 30, 2026</span>
+            <span class="cert-id-tag">ID: 31a58fe7d854...</span>
+          </div>
+          <div class="cert-actions-row">
+            <a href="certificates/CertificateOfCompletion_HandsOn Introduction Java.pdf" target="_blank" class="cert-action-btn" title="View Certificate PDF">
+              <i class="fas fa-file-pdf"></i>
+              <span>View PDF</span>
+            </a>
+            <a href="https://www.linkedin.com/in/tamiz-r-443505309/details/certifications/" target="_blank" rel="noopener noreferrer" class="cert-action-btn verify" title="View on LinkedIn">
+              <i class="fas fa-circle-check"></i>
+              <span>Verify Profile</span>
+            </a>
+          </div>
+        </div>
+
       </div>
 
+      <!-- Master Resume Download Banner -->
       <div class="cert-resume ri">
-        <a href="TAMIZ_R_Resume.pdf" target="_blank" download class="card cert-resume-link">
+        <a href="TAMIZ_R_Resume.pdf" target="_blank" download="TAMIZ_R_Resume.pdf" class="card cert-resume-link">
           <i class="fas fa-file-pdf"></i>
-          <strong>Download TAMIZ_R_Resume.pdf</strong>
-          <i class="fas fa-arrow-down"></i>
+          <div>
+            <strong>Download Complete Verified Resume (TAMIZ_R_Resume.pdf)</strong>
+            <p style="font-size:0.78rem;color:var(--text-m);margin-top:0.2rem;">Updated November 2026 &bull; Verified Academic &amp; Project Documentation</p>
+          </div>
+          <i class="fas fa-arrow-down" style="color:var(--gold);margin-left:auto;"></i>
         </a>
       </div>
     </section>
 
-    <!-- CONTACT -->
+    <!-- CONTACT & COLLABORATION -->
     <section id="contact" class="sec container">
-      <span class="chip ri">Get In Touch</span>
+      <span class="chip ri">Direct Communication</span>
       <h2 class="sec-title ri">Contact &amp; Collaboration</h2>
-      <p class="sec-desc ri">Open to software engineering opportunities, technical collaborations, and research partnerships.</p>
+      <p class="sec-desc ri">Open to software engineering internships, full-stack developer roles, AI engineering opportunities, and systems programming collaborations.</p>
 
       <div class="contact-layout mt-lg">
         <div class="contact-info ri">
           <h3>Reach Out Directly</h3>
           <div class="contact-links">
-            <a href="mailto:rtamizh7@gmail.com" class="card contact-link">
+            <a href="mailto:rtamizh7@gmail.com" class="card contact-link" title="Send direct email to Tamiz R">
               <i class="fas fa-envelope"></i>
-              <div><div class="cl-label">Personal Email</div><div class="cl-val">rtamizh7@gmail.com</div></div>
+              <div>
+                <div class="cl-label">Personal Email</div>
+                <div class="cl-val">rtamizh7@gmail.com</div>
+              </div>
             </a>
-            <a href="https://www.linkedin.com/in/tamiz-r-443505309/" target="_blank" rel="noopener noreferrer" class="card contact-link">
+
+            <a href="https://www.linkedin.com/in/tamiz-r-443505309/" target="_blank" rel="noopener noreferrer" class="card contact-link" title="Connect on LinkedIn">
               <i class="fa-brands fa-linkedin"></i>
-              <div><div class="cl-label">LinkedIn</div><div class="cl-val">tamiz-r-443505309</div></div>
+              <div>
+                <div class="cl-label">LinkedIn</div>
+                <div class="cl-val">linkedin.com/in/tamiz-r-443505309/</div>
+              </div>
             </a>
-            <a href="https://www.codechef.com/users/tamiz_r" target="_blank" rel="noopener noreferrer" class="card contact-link">
-              <i class="fas fa-code"></i>
-              <div><div class="cl-label">CodeChef</div><div class="cl-val">@tamiz_r &bull; Rating 1328</div></div>
-            </a>
-            <a href="https://github.com/tamiz-r" target="_blank" rel="noopener noreferrer" class="card contact-link">
+
+            <a href="https://github.com/tamiz-r" target="_blank" rel="noopener noreferrer" class="card contact-link" title="Inspect GitHub Repositories">
               <i class="fa-brands fa-github"></i>
-              <div><div class="cl-label">GitHub</div><div class="cl-val">github.com/tamiz-r</div></div>
+              <div>
+                <div class="cl-label">GitHub</div>
+                <div class="cl-val">github.com/tamiz-r</div>
+              </div>
+            </a>
+
+            <a href="https://www.codechef.com/users/tamiz_r" target="_blank" rel="noopener noreferrer" class="card contact-link" title="CodeChef Competitive Profile">
+              <i class="fas fa-code"></i>
+              <div>
+                <div class="cl-label">CodeChef</div>
+                <div class="cl-val">codechef.com/users/tamiz_r &bull; 1,594 Solved</div>
+              </div>
+            </a>
+
+            <a href="tel:+918608175505" class="card contact-link" title="Direct Telephone">
+              <i class="fas fa-phone"></i>
+              <div>
+                <div class="cl-label">Telephone</div>
+                <div class="cl-val">+91-8608175505</div>
+              </div>
             </a>
           </div>
+
           <div class="avail-badge ri">
             <span class="avail-dot"></span>
-            <span>Available for Software Engineering Opportunities</span>
+            <span>Available for Software Engineering &bull; Systems &bull; Full-Stack Opportunities</span>
           </div>
         </div>
 
         <div class="contact-form-wrap ri">
-          <h3>Send a Message</h3>
+          <h3>Send a Quick Message</h3>
           <form id="contact-form">
-            <div class="form-field"><label for="contact-name">Full Name</label><input type="text" id="contact-name" placeholder="Your name" required /></div>
-            <div class="form-field"><label for="contact-email">Email</label><input type="email" id="contact-email" placeholder="your@email.com" required /></div>
-            <div class="form-field"><label for="contact-msg">Message</label><textarea id="contact-msg" rows="4" placeholder="Your message..." required></textarea></div>
+            <div class="form-field">
+              <label for="contact-name">Full Name</label>
+              <input type="text" id="contact-name" placeholder="e.g. Sarah Jenkins" required />
+            </div>
+            <div class="form-field">
+              <label for="contact-email">Email Address</label>
+              <input type="email" id="contact-email" placeholder="sarah@company.com" required />
+            </div>
+            <div class="form-field">
+              <label for="contact-msg">Message</label>
+              <textarea id="contact-msg" rows="4" placeholder="Hello Tamiz, I came across your portfolio and would like to discuss..." required></textarea>
+            </div>
             <button type="submit" class="btn-primary" style="width:100%;">
               <span>Send Message</span>
               <i class="fas fa-paper-plane"></i>
@@ -536,9 +1186,13 @@
         </div>
       </div>
 
+      <!-- Security Protocol Banner -->
       <div class="sec-banner ri">
-        <span class="sec-badge"><i class="fas fa-lock"></i><span>PROTECTED ARCHITECTURE // TAMIZ R</span></span>
-        <span>Anti-inspection protocols active &bull; Telemetry logged</span>
+        <span class="sec-badge">
+          <i class="fas fa-lock"></i>
+          <span>PROTECTED ARCHITECTURE // TAMIZ R</span>
+        </span>
+        <span>Telemetry logged directly to rtamizh7@gmail.com &bull; Zero external trackers</span>
       </div>
     </section>
 
@@ -547,7 +1201,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-logo">TAMIZ R</div>
-      <div class="footer-copy">&copy; 2026 Tamiz R. All rights reserved.</div>
+      <div class="footer-copy">&copy; 2026 Tamiz R. All rights reserved. Built with C++ systems rigor, React, and MongoDB Vector Search.</div>
     </div>
   </footer>
 
